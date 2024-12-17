@@ -77,12 +77,56 @@
         .mb-3 {
             margin-bottom: 1rem;
         }
+        .alert {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .alert:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
     </style>
 </head>
 
 <body>
     <h1 class="mb-4 text-center">Danh Sách Máy Tính</h1>
     <a href="{{ route('computer.create') }}" class="btn btn-primary mb-3 d-block mx-auto">Thêm Máy Tính</a>  <!-- Nút để thêm máy tính mới -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+
     <div class="table-container">
         <table class="table table-striped table-bordered table-hover mx-auto">
             <thead class="thead-dark">
