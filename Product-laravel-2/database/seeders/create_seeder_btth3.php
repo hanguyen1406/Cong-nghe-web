@@ -18,7 +18,7 @@ class create_seeder_btth3 extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
 
             //bài 1
             // $medicineId = DB::table('medicines')->insertGetId([
@@ -55,7 +55,7 @@ class create_seeder_btth3 extends Seeder
             $urgencies = ['Low', 'Medium', 'High'];
             $statuses = ['Open', 'In Progress', 'Resolved'];
                 $computerId = DB::table('computers')->insertGetId([
-                    'computer_name' => $faker->word,
+                    'computer_name' => $faker->bothify('DELL-??####'),
                     'model' => $faker->word,
                     'operating_system' => $faker->word,
                     'processor' => $faker->word,

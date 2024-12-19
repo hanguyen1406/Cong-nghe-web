@@ -66,17 +66,17 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Schema::create('issues', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->unsignedBigInteger('computer_id');
-        //     $table->foreign('computer_id')->references('id')->on('computers')->onDelete('cascade');
-        //     $table->string('reported_by', 50)->nullable();
-        //     $table->dateTime('reported_date');
-        //     $table->text('description');
-        //     $table->enum('urgency', ['Low', 'Medium', 'High']);
-        //     $table->enum('status', ['Open', 'In Progress', 'Resolved']);
-        //     $table->timestamps();
-        // });
+        Schema::create('issues', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('computer_id');
+            $table->foreign('computer_id')->references('id')->on('computers')->onDelete('cascade');
+            $table->string('reported_by', 50)->nullable();
+            $table->dateTime('reported_date');
+            $table->text('description');
+            $table->enum('urgency', ['Low', 'Medium', 'High']);
+            $table->enum('status', ['Open', 'In Progress', 'Resolved']);
+            $table->timestamps();
+        });
     }
 
     /**
